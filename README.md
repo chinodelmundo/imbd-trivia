@@ -1,4 +1,4 @@
-## IMBD Trivia
+## IMDB Trivia
 
 See demo at : https://imbd-trivia.netlify.app
 
