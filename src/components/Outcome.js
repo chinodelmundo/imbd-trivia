@@ -17,10 +17,9 @@ function Outcome({ outcome, show, onClickReset, score }) {
               </div>
             </div>
           )}
+          {outcome === 2 && <div className="outcome">😐</div>}
         </div>
       )}
-
-      {outcome === 2 && <div className="outcome">😐</div>}
     </div>
   );
 }
