@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import Movie from './components/Movie';
 import Outcome from './components/Outcome';
-import Config from './Config';
 
 const App = () => {
   const [movies, setMovies] = useState([]);
@@ -16,9 +15,7 @@ const App = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    const apikey = process.env.IMDB_KEY || Config.IMDB_KEY;
-    const url = `https://imdb-api.com/en/API/Top250Movies/${apikey}`;
-
+    const url = `https://imdb-api.com/en/API/Top250Movies/${process.env.REACT_APP_IMDB_KEY}`;
     const fetchData = async () => {
       try {
         const response = await fetch(url);
