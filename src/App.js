@@ -89,38 +89,40 @@ const App = () => {
 
   return (
     <div className="app">
-      <Movie movie={leftMovie} showRating={showRating} />
-      <div>
-        {error && <div className="error-container">Error: {error}</div>}
-        <div className="scores-container">
-          <div className="highscore">Highscore: {highscore}</div>
-          <div className="score">Score: {score}</div>
-        </div>
-        <div className="question">Which has the higher rating?</div>
-        <div className="buttons-container">
-          <button
-            className="btn btn-primary"
-            disabled={showRating}
-            onClick={() => handleClick(true)}
-          >
-            Left
-          </button>
-          <button
-            className="btn btn-primary"
-            disabled={showRating}
-            onClick={() => handleClick(false)}
-          >
-            Right
-          </button>
-        </div>
-        <Outcome
-          outcome={outcome}
-          show={showRating}
-          score={score}
-          onClickReset={handleResetGame}
-        />
+      {error && <div className="error-container">Error: {error}</div>}
+      <div className="scores-container">
+        <div className="highscore">Highscore: {highscore}</div>
+        <div className="score">Score: {score}</div>
       </div>
-      <Movie movie={rightMovie} showRating={showRating} />
+      <div className="movies-container">
+        <Movie movie={leftMovie} showRating={showRating} />
+        <div className="question-container">
+          <div className="question">Which has the higher rating?</div>
+          <div className="buttons-container">
+            <button
+              className="btn btn-primary"
+              disabled={showRating}
+              onClick={() => handleClick(true)}
+            >
+              Left
+            </button>
+            <button
+              className="btn btn-primary"
+              disabled={showRating}
+              onClick={() => handleClick(false)}
+            >
+              Right
+            </button>
+          </div>
+          <Outcome
+            outcome={outcome}
+            show={showRating}
+            score={score}
+            onClickReset={handleResetGame}
+          />
+        </div>
+        <Movie movie={rightMovie} showRating={showRating} />
+      </div>
     </div>
   );
 };
